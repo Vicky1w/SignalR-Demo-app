@@ -1,0 +1,9 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/temp.zip
+/obj/**
+/bin/**
+/SignalR Demo/obj/**
+/SignalR Demo/bin/**

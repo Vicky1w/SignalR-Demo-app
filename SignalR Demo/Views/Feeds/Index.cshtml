@@ -1,0 +1,35 @@
+﻿<div class="feeds" ng-app="Feeds" ng-controller="List" ng-cloak>
+    @*@{ Html.RenderPartial("_Add", new Feed()); }*@
+
+    <form>
+        <section class="container form-group row">
+            <div class="col-md-2">
+                <div class="input-group feed-{{post.FeedName}}">
+                    <span class="input-group-addon">feed</span>
+                    <input type="number" ng-model="post.FeedName" min="1" max="5" class="form-control" />
+                </div>
+            </div>
+            <input type="text" ng-model="post.Body" placeholder="New Post" class="form-control col-md-2" />
+            <input type="submit" ng-click="addPost()" class="btn btn-primary btn-large col-md-1" value="Post &raquo;" />
+            <div class="col-md-2 input-group">
+                <span class="input-group-addon">max posts</span>
+                <input type="number" ng-model="wallLength" class="form-control" />
+            </div>
+        </section>
+    </form>
+    <section class="ticker clearfix">
+        <ul ng-repeat="item in items | limitTo:wallLength" class="list-inline feed-{{item.FeedName}}">
+            <li>Feed {{item.FeedName}}</li>
+            <li>{{item.Body}}</li>
+            <li>{{item.DateTime | date:'h:mm:ss a'}}</li>
+        </ul>
+    </section>
+</div>
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/angular")
+    @Scripts.Render("~/bundles/signalr")
+    @Scripts.Render("~/signalr/hubs")
+    @Scripts.Render("~/apps/feeds")
+}

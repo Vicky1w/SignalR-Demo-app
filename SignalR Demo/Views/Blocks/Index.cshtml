@@ -1,0 +1,15 @@
+﻿<section class="hub blocks">
+    <div draggable class="circle"></div>
+</section>
+<section class="persistent blocks">
+    <div draggable class="circle"></div>
+</section>
+<div id="info" class="clearfix"></div>
+<div id="output"></div>
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/signalr")
+    @Scripts.Render("~/signalr/hubs")
+    @Scripts.Render("~/apps/blocks")
+}
